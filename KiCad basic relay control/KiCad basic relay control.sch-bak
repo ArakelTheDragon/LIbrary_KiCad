@@ -1,0 +1,61 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 4
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Sheet
+S 500  7000 1400 650 
+U 61192E1F
+F0 "Power supply" 50
+F1 "Power supply.sch" 50
+F2 "Adjustable" I R 1900 7050 50 
+F3 "Vin" I L 500 7050 50 
+F4 "GND" I L 500 7600 50 
+$EndSheet
+$Sheet
+S 2050 7000 1050 650 
+U 611932B0
+F0 "PIC16F877A" 50
+F1 "PIC16F877A.sch" 50
+F2 "5V" I R 3100 7050 50 
+F3 "PIN" I R 3100 7150 50 
+F4 "GND" I R 3100 7600 50 
+$EndSheet
+$Sheet
+S 3250 7000 1200 650 
+U 61193347
+F0 "Relay" 50
+F1 "Relay.sch" 50
+F2 "5V" I L 3250 7050 50 
+F3 "PIN" I L 3250 7150 50 
+F4 "GND" I L 3250 7600 50 
+F5 "Load" I L 3250 7250 50 
+$EndSheet
+Wire Wire Line
+	3100 7050 3150 7050
+Wire Wire Line
+	3100 7150 3250 7150
+Wire Wire Line
+	3100 7600 3250 7600
+Wire Wire Line
+	1900 7050 1950 7050
+Wire Wire Line
+	1950 7050 1950 6850
+Wire Wire Line
+	1950 6850 3150 6850
+Wire Wire Line
+	3150 6850 3150 7050
+Connection ~ 3150 7050
+Wire Wire Line
+	3150 7050 3250 7050
+$EndSCHEMATC
