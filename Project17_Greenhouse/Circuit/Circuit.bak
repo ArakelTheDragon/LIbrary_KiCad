@@ -1,0 +1,793 @@
+EESchema Schematic File Version 4
+LIBS:Circuit-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L MCU_Microchip_PIC18:PIC18F4550-IP U1
+U 1 1 6458C314
+P 5500 3550
+F 0 "U1" H 4750 5100 50  0000 C CNN
+F 1 "PIC18F4550-IP" H 5000 5000 50  0000 C CNN
+F 2 "Package_DIP:DIP-40_W15.24mm" H 5500 3750 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/39760d.pdf" H 5500 3300 50  0001 C CNN
+	1    5500 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D1
+U 1 1 6458C3F2
+P 7400 4500
+F 0 "D1" V 7438 4383 50  0000 R CNN
+F 1 "LED" V 7347 4383 50  0000 R CNN
+F 2 "" H 7400 4500 50  0001 C CNN
+F 3 "~" H 7400 4500 50  0001 C CNN
+	1    7400 4500
+	0    -1   -1   0   
+$EndComp
+Text GLabel 7400 4350 0    50   Input ~ 0
+RE0
+Text GLabel 6600 4350 2    50   Input ~ 0
+RE0
+$Comp
+L power:GND #PWR05
+U 1 1 6458C5E5
+P 7400 4850
+F 0 "#PWR05" H 7400 4600 50  0001 C CNN
+F 1 "GND" H 7405 4677 50  0000 C CNN
+F 2 "" H 7400 4850 50  0001 C CNN
+F 3 "" H 7400 4850 50  0001 C CNN
+	1    7400 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR01
+U 1 1 6458C619
+P 5400 2150
+F 0 "#PWR01" H 5400 2000 50  0001 C CNN
+F 1 "+5V" H 5350 2350 50  0000 C CNN
+F 2 "" H 5400 2150 50  0001 C CNN
+F 3 "" H 5400 2150 50  0001 C CNN
+	1    5400 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR03
+U 1 1 6458C684
+P 5500 2150
+F 0 "#PWR03" H 5500 2000 50  0001 C CNN
+F 1 "+5V" H 5500 2350 50  0000 C CNN
+F 2 "" H 5500 2150 50  0001 C CNN
+F 3 "" H 5500 2150 50  0001 C CNN
+	1    5500 2150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR04
+U 1 1 6458C6F6
+P 5500 4950
+F 0 "#PWR04" H 5500 4700 50  0001 C CNN
+F 1 "GND" H 5505 4777 50  0000 C CNN
+F 2 "" H 5500 4950 50  0001 C CNN
+F 3 "" H 5500 4950 50  0001 C CNN
+	1    5500 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR02
+U 1 1 6458C705
+P 5400 4950
+F 0 "#PWR02" H 5400 4700 50  0001 C CNN
+F 1 "GND" H 5405 4777 50  0000 C CNN
+F 2 "" H 5400 4950 50  0001 C CNN
+F 3 "" H 5400 4950 50  0001 C CNN
+	1    5400 4950
+	1    0    0    -1  
+$EndComp
+Text Notes 6200 2150 0    100  ~ 0
+The pins with the green arrows are not connected to anything
+$Sheet
+S 6950 5250 550  200 
+U 6458C971
+F0 "Reset" 50
+F1 "Reset.sch" 50
+F2 "MCLR" I L 6950 5400 50 
+$EndSheet
+Text GLabel 6600 4650 2    50   Input ~ 0
+RE3_MCLR
+Text GLabel 6950 5400 0    50   Input ~ 0
+RE3_MCLR
+$Sheet
+S 5000 1600 950  200 
+U 6458CCBB
+F0 "PowerSupply.5V" 50
+F1 "PowerSupply.5V.sch" 50
+$EndSheet
+Text Notes 5200 1750 0    100  ~ 0
+LM2596
+Text Notes 6000 2000 0    50   ~ 0
+4.92V calculated\n------- real not measured\nBorders 2.7V to 5.5V\nPin current will change if \nthe voltage is lower
+Text Notes 7550 5500 0    50   ~ 0
+The reset pin can be used instead\nof having to debug an issue personally\nafter the device is installed
+Text Notes 9950 1100 0    50   ~ 10
+Circuit description:\nWhile the use of global labels\nis not recommended, it can\nwork out very well if you \ndon't make mistakes, otherwise\nshorts may appear
+$Comp
+L Device:R_Small R?
+U 1 1 645E0131
+P 7400 4750
+F 0 "R?" H 7459 4796 50  0000 L CNN
+F 1 "1k" H 7459 4705 50  0000 L CNN
+F 2 "" H 7400 4750 50  0001 C CNN
+F 3 "~" H 7400 4750 50  0001 C CNN
+	1    7400 4750
+	1    0    0    -1  
+$EndComp
+Text Notes 7600 5100 0    50   ~ 0
+Today's ultra bright LEDs light up\nat 300uA, a 1K resistor is enough\ninstead of the 330R or 470R.\nThe current is 2mA on 5V and 1mA\non 3V.
+$Comp
+L Connector:USB_A J?
+U 1 1 645E0A38
+P 8200 3450
+F 0 "J?" H 7970 3441 50  0000 R CNN
+F 1 "USB_A" H 7970 3350 50  0000 R CNN
+F 2 "" H 8350 3400 50  0001 C CNN
+F 3 " ~" H 8350 3400 50  0001 C CNN
+	1    8200 3450
+	-1   0    0    -1  
+$EndComp
+Text Notes 8450 3200 0    50   ~ 0
+Put on the botton of the PCB
+Text GLabel 6600 3250 2    50   Input ~ 0
+VUSB
+Text GLabel 7900 3250 0    50   Input ~ 0
+VUSB
+$Comp
+L power:GND #PWR?
+U 1 1 645E103D
+P 8200 3850
+F 0 "#PWR?" H 8200 3600 50  0001 C CNN
+F 1 "GND" H 8205 3677 50  0000 C CNN
+F 2 "" H 8200 3850 50  0001 C CNN
+F 3 "" H 8200 3850 50  0001 C CNN
+	1    8200 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 645E1058
+P 8300 3850
+F 0 "#PWR?" H 8300 3600 50  0001 C CNN
+F 1 "GND" H 8350 3650 50  0000 C CNN
+F 2 "" H 8300 3850 50  0001 C CNN
+F 3 "" H 8300 3850 50  0001 C CNN
+	1    8300 3850
+	1    0    0    -1  
+$EndComp
+Text GLabel 6600 2850 2    50   Input ~ 0
+D+
+Text GLabel 6600 2750 2    50   Input ~ 0
+D-
+Text GLabel 7900 3450 0    50   Input ~ 0
+D+
+Text GLabel 7900 3550 0    50   Input ~ 0
+D-
+Text Notes 7700 3050 0    50   ~ 0
+VUSB is the USBs power supply\nIt comes from a PC or other.\nThis circuit(PIC18F4550) is not\npowered by a USB connection\nInstead we use LM2596 at 150KHz
+$Comp
+L Connector_Generic:Conn_01x05 J?
+U 1 1 645E1CB1
+P 5450 5800
+F 0 "J?" H 5650 5850 50  0000 L CNN
+F 1 "Programming" V 5550 5550 50  0000 L CNN
+F 2 "" H 5450 5800 50  0001 C CNN
+F 3 "~" H 5450 5800 50  0001 C CNN
+	1    5450 5800
+	0    1    1    0   
+$EndComp
+Text GLabel 5650 5600 1    50   Input ~ 0
+RE3_MCLR
+$Comp
+L power:+5V #PWR?
+U 1 1 645E206B
+P 5550 5600
+F 0 "#PWR?" H 5550 5450 50  0001 C CNN
+F 1 "+5V" V 5550 5800 50  0000 C CNN
+F 2 "" H 5550 5600 50  0001 C CNN
+F 3 "" H 5550 5600 50  0001 C CNN
+	1    5550 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 645E20FE
+P 7500 1450
+F 0 "#PWR?" H 7500 1200 50  0001 C CNN
+F 1 "GND" H 7505 1277 50  0000 C CNN
+F 2 "" H 7500 1450 50  0001 C CNN
+F 3 "" H 7500 1450 50  0001 C CNN
+	1    7500 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 645E215D
+P 5450 5600
+F 0 "#PWR?" H 5450 5350 50  0001 C CNN
+F 1 "GND" V 5455 5427 50  0000 C CNN
+F 2 "" H 5450 5600 50  0001 C CNN
+F 3 "" H 5450 5600 50  0001 C CNN
+	1    5450 5600
+	-1   0    0    1   
+$EndComp
+Text GLabel 4400 4150 0    50   Input ~ 0
+PGD
+Text GLabel 4400 4050 0    50   Input ~ 0
+PGC
+Text GLabel 4400 3950 0    50   Input ~ 0
+PGM
+Text GLabel 5350 5600 1    50   Input ~ 0
+PGD
+Text GLabel 5250 5600 1    50   Input ~ 0
+PGC
+$Comp
+L Device:C_Small C?
+U 1 1 645E28FB
+P 7500 1350
+F 0 "C?" H 7592 1396 50  0000 L CNN
+F 1 "100uF" H 7592 1305 50  0000 L CNN
+F 2 "" H 7500 1350 50  0001 C CNN
+F 3 "~" H 7500 1350 50  0001 C CNN
+	1    7500 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 645E298F
+P 7950 1350
+F 0 "C?" H 8042 1396 50  0000 L CNN
+F 1 "1mF" H 8042 1305 50  0000 L CNN
+F 2 "" H 7950 1350 50  0001 C CNN
+F 3 "~" H 7950 1350 50  0001 C CNN
+	1    7950 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 645E2A5B
+P 7950 1450
+F 0 "#PWR?" H 7950 1200 50  0001 C CNN
+F 1 "GND" H 7955 1277 50  0000 C CNN
+F 2 "" H 7950 1450 50  0001 C CNN
+F 3 "" H 7950 1450 50  0001 C CNN
+	1    7950 1450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 645E2A93
+P 7500 1250
+F 0 "#PWR?" H 7500 1100 50  0001 C CNN
+F 1 "+5V" H 7515 1423 50  0000 C CNN
+F 2 "" H 7500 1250 50  0001 C CNN
+F 3 "" H 7500 1250 50  0001 C CNN
+	1    7500 1250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 645E2AAC
+P 7950 1250
+F 0 "#PWR?" H 7950 1100 50  0001 C CNN
+F 1 "+5V" H 7965 1423 50  0000 C CNN
+F 2 "" H 7950 1250 50  0001 C CNN
+F 3 "" H 7950 1250 50  0001 C CNN
+	1    7950 1250
+	1    0    0    -1  
+$EndComp
+Text Notes 8200 1350 0    50   ~ 0
+Filter capacitors, must be as\nclose as possible to the 5V pins\nof the MCU
+$Comp
+L Device:LED D?
+U 1 1 645E3145
+P 6200 5400
+F 0 "D?" V 6238 5283 50  0000 R CNN
+F 1 "LED" V 6147 5283 50  0000 R CNN
+F 2 "" H 6200 5400 50  0001 C CNN
+F 3 "~" H 6200 5400 50  0001 C CNN
+	1    6200 5400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 645E31F9
+P 6200 5650
+F 0 "R?" H 6300 5700 50  0000 L CNN
+F 1 "1K" H 6259 5605 50  0000 L CNN
+F 2 "" H 6200 5650 50  0001 C CNN
+F 3 "~" H 6200 5650 50  0001 C CNN
+	1    6200 5650
+	1    0    0    -1  
+$EndComp
+Text GLabel 6200 5250 0    50   Input ~ 0
+RE3_MCLR
+$Comp
+L power:GND #PWR?
+U 1 1 645E3284
+P 6200 5750
+F 0 "#PWR?" H 6200 5500 50  0001 C CNN
+F 1 "GND" H 6205 5577 50  0000 C CNN
+F 2 "" H 6200 5750 50  0001 C CNN
+F 3 "" H 6200 5750 50  0001 C CNN
+	1    6200 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 645E43D1
+P 4900 5400
+F 0 "D?" V 4938 5283 50  0000 R CNN
+F 1 "LED" V 4847 5283 50  0000 R CNN
+F 2 "" H 4900 5400 50  0001 C CNN
+F 3 "~" H 4900 5400 50  0001 C CNN
+	1    4900 5400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 645E43D8
+P 4900 5650
+F 0 "R?" H 5000 5700 50  0000 L CNN
+F 1 "1K" H 4959 5605 50  0000 L CNN
+F 2 "" H 4900 5650 50  0001 C CNN
+F 3 "~" H 4900 5650 50  0001 C CNN
+	1    4900 5650
+	1    0    0    -1  
+$EndComp
+Text GLabel 4900 5250 0    50   Input ~ 0
+PGD
+$Comp
+L power:GND #PWR?
+U 1 1 645E43E0
+P 4900 5750
+F 0 "#PWR?" H 4900 5500 50  0001 C CNN
+F 1 "GND" H 4905 5577 50  0000 C CNN
+F 2 "" H 4900 5750 50  0001 C CNN
+F 3 "" H 4900 5750 50  0001 C CNN
+	1    4900 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:LED D?
+U 1 1 645E4493
+P 4550 5400
+F 0 "D?" V 4588 5283 50  0000 R CNN
+F 1 "LED" V 4497 5283 50  0000 R CNN
+F 2 "" H 4550 5400 50  0001 C CNN
+F 3 "~" H 4550 5400 50  0001 C CNN
+	1    4550 5400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 645E449A
+P 4550 5650
+F 0 "R?" H 4650 5700 50  0000 L CNN
+F 1 "1K" H 4609 5605 50  0000 L CNN
+F 2 "" H 4550 5650 50  0001 C CNN
+F 3 "~" H 4550 5650 50  0001 C CNN
+	1    4550 5650
+	1    0    0    -1  
+$EndComp
+Text GLabel 4550 5250 0    50   Input ~ 0
+PGC
+$Comp
+L power:GND #PWR?
+U 1 1 645E44A2
+P 4550 5750
+F 0 "#PWR?" H 4550 5500 50  0001 C CNN
+F 1 "GND" H 4555 5577 50  0000 C CNN
+F 2 "" H 4550 5750 50  0001 C CNN
+F 3 "" H 4550 5750 50  0001 C CNN
+	1    4550 5750
+	1    0    0    -1  
+$EndComp
+Text GLabel 7550 3200 1    50   Input ~ 0
+VUSB
+$Comp
+L Device:C_Small C?
+U 1 1 645E4DB0
+P 7550 3300
+F 0 "C?" H 7350 3350 50  0000 L CNN
+F 1 "470nF" H 7200 3250 50  0000 L CNN
+F 2 "" H 7550 3300 50  0001 C CNN
+F 3 "~" H 7550 3300 50  0001 C CNN
+	1    7550 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 645E4E7A
+P 7550 3400
+F 0 "#PWR?" H 7550 3150 50  0001 C CNN
+F 1 "GND" H 7555 3227 50  0000 C CNN
+F 2 "" H 7550 3400 50  0001 C CNN
+F 3 "" H 7550 3400 50  0001 C CNN
+	1    7550 3400
+	1    0    0    -1  
+$EndComp
+Text Notes 6950 3500 0    50   ~ 0
+ByPass(Filter)
+Text Notes 9050 2800 0    50   ~ 0
+VUSB is the Internal USB 3.3V voltage regulator output, \nand positive supply for internal USB transceiver.
+Text Notes 9050 2900 0    50   ~ 0
+1 Kbyte USB RAM
+Text Notes 9050 3100 0    50   ~ 0
+FSEN and UPUEN activate the internal pullups \nfor D+ and D-
+$Comp
+L power:+5V #PWR?
+U 1 1 645E629B
+P 7400 3200
+F 0 "#PWR?" H 7400 3050 50  0001 C CNN
+F 1 "+5V" H 7415 3373 50  0000 C CNN
+F 2 "" H 7400 3200 50  0001 C CNN
+F 3 "" H 7400 3200 50  0001 C CNN
+	1    7400 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 3200 7550 3200
+Text Notes 9050 3350 0    50   ~ 0
+USB speed is up to 12Mbit/s, its suitablle for\nnanowath and low power devices.
+Text Notes 4650 6400 0    50   ~ 0
+The LEDs must be as slose as possible to\nthe programmer interface.\nThe programmer interface, must be as\nclose as possible to the PIC18F4550
+$Comp
+L Relay:FINDER-32.21-x000 K?
+U 1 1 645E708E
+P 9800 3850
+F 0 "K?" H 10230 3896 50  0000 L CNN
+F 1 "FINDER-32.21-x000" H 10230 3805 50  0000 L CNN
+F 2 "Relay_THT:Relay_SPST_Finder_32.21-x300" H 11070 3820 50  0001 C CNN
+F 3 "https://gfinder.findernet.com/assets/Series/355/S32EN.pdf" H 9800 3850 50  0001 C CNN
+F 4 "https://www.tme.eu/bg/details/32.21.7.005.200/miniatiurni-elektromagnitni-releta/finder/32-21-7-005-2000/" H 9800 3850 50  0001 C CNN "Tme"
+	1    9800 3850
+	1    0    0    -1  
+$EndComp
+Text GLabel 6600 3450 2    50   Input ~ 0
+RD0
+$Comp
+L power:GND #PWR?
+U 1 1 645E749A
+P 9600 4550
+F 0 "#PWR?" H 9600 4300 50  0001 C CNN
+F 1 "GND" H 9650 4350 50  0000 C CNN
+F 2 "" H 9600 4550 50  0001 C CNN
+F 3 "" H 9600 4550 50  0001 C CNN
+	1    9600 4550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_FET:IRLZ34N Q?
+U 1 1 645E752E
+P 9500 4350
+F 0 "Q?" H 9705 4396 50  0000 L CNN
+F 1 "IRLZ34N" H 9705 4305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 9750 4275 50  0001 L CIN
+F 3 "http://www.infineon.com/dgdl/irlz34npbf.pdf?fileId=5546d462533600a40153567206892720" H 9500 4350 50  0001 L CNN
+	1    9500 4350
+	1    0    0    -1  
+$EndComp
+Text GLabel 9250 4350 0    50   Input ~ 0
+RD0
+$Comp
+L power:+5V #PWR?
+U 1 1 645E7DDD
+P 9600 3550
+F 0 "#PWR?" H 9600 3400 50  0001 C CNN
+F 1 "+5V" H 9615 3723 50  0000 C CNN
+F 2 "" H 9600 3550 50  0001 C CNN
+F 3 "" H 9600 3550 50  0001 C CNN
+	1    9600 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D_Schottky_Small D?
+U 1 1 645E83DB
+P 9100 3850
+F 0 "D?" V 9054 3918 50  0000 L CNN
+F 1 "SK56" V 9145 3918 50  0000 L CNN
+F 2 "" V 9100 3850 50  0001 C CNN
+F 3 "~" V 9100 3850 50  0001 C CNN
+	1    9100 3850
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9600 4150 9100 4150
+Wire Wire Line
+	9100 4150 9100 3950
+Connection ~ 9600 4150
+Wire Wire Line
+	9100 3750 9100 3550
+Wire Wire Line
+	9100 3550 9600 3550
+Connection ~ 9600 3550
+$Comp
+L Device:R_Small R?
+U 1 1 645E883E
+P 9300 4450
+F 0 "R?" H 9359 4496 50  0000 L CNN
+F 1 "1k" H 9359 4405 50  0000 L CNN
+F 2 "" H 9300 4450 50  0001 C CNN
+F 3 "~" H 9300 4450 50  0001 C CNN
+	1    9300 4450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9300 4550 9600 4550
+Connection ~ 9600 4550
+Wire Wire Line
+	9250 4350 9300 4350
+Connection ~ 9300 4350
+Text Notes 10100 4500 0    50   ~ 0
+The transistor can be\nused on 3V or 5V
+$Comp
+L Connector_Generic:Conn_01x02 J?
+U 1 1 645E94DE
+P 10800 3650
+F 0 "J?" H 10880 3642 50  0000 L CNN
+F 1 "AC230V" H 10880 3551 50  0000 L CNN
+F 2 "" H 10800 3650 50  0001 C CNN
+F 3 "~" H 10800 3650 50  0001 C CNN
+	1    10800 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10600 3750 10600 4150
+Wire Wire Line
+	10600 4150 10000 4150
+Wire Wire Line
+	10100 3550 10600 3550
+Wire Wire Line
+	10600 3550 10600 3650
+$Comp
+L Relay:FINDER-32.21-x000 K?
+U 1 1 645EA550
+P 9800 5150
+F 0 "K?" H 10230 5196 50  0000 L CNN
+F 1 "FINDER-32.21-x000" H 10230 5105 50  0000 L CNN
+F 2 "Relay_THT:Relay_SPST_Finder_32.21-x300" H 11070 5120 50  0001 C CNN
+F 3 "https://gfinder.findernet.com/assets/Series/355/S32EN.pdf" H 9800 5150 50  0001 C CNN
+F 4 "https://www.tme.eu/bg/details/32.21.7.005.200/miniatiurni-elektromagnitni-releta/finder/32-21-7-005-2000/" H 9800 5150 50  0001 C CNN "Tme"
+	1    9800 5150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 645EA557
+P 9600 5850
+F 0 "#PWR?" H 9600 5600 50  0001 C CNN
+F 1 "GND" H 9650 5650 50  0000 C CNN
+F 2 "" H 9600 5850 50  0001 C CNN
+F 3 "" H 9600 5850 50  0001 C CNN
+	1    9600 5850
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_FET:IRLZ34N Q?
+U 1 1 645EA55D
+P 9500 5650
+F 0 "Q?" H 9705 5696 50  0000 L CNN
+F 1 "IRLZ34N" H 9705 5605 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 9750 5575 50  0001 L CIN
+F 3 "http://www.infineon.com/dgdl/irlz34npbf.pdf?fileId=5546d462533600a40153567206892720" H 9500 5650 50  0001 L CNN
+	1    9500 5650
+	1    0    0    -1  
+$EndComp
+Text GLabel 9250 5650 0    50   Input ~ 0
+RD1
+$Comp
+L power:+5V #PWR?
+U 1 1 645EA565
+P 9600 4850
+F 0 "#PWR?" H 9600 4700 50  0001 C CNN
+F 1 "+5V" H 9615 5023 50  0000 C CNN
+F 2 "" H 9600 4850 50  0001 C CNN
+F 3 "" H 9600 4850 50  0001 C CNN
+	1    9600 4850
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D_Schottky_Small D?
+U 1 1 645EA56B
+P 9100 5150
+F 0 "D?" V 9054 5218 50  0000 L CNN
+F 1 "SK56" V 9145 5218 50  0000 L CNN
+F 2 "" V 9100 5150 50  0001 C CNN
+F 3 "~" V 9100 5150 50  0001 C CNN
+	1    9100 5150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9600 5450 9100 5450
+Wire Wire Line
+	9100 5450 9100 5250
+Connection ~ 9600 5450
+Wire Wire Line
+	9100 5050 9100 4850
+Wire Wire Line
+	9100 4850 9600 4850
+Connection ~ 9600 4850
+$Comp
+L Device:R_Small R?
+U 1 1 645EA578
+P 9300 5750
+F 0 "R?" H 9359 5796 50  0000 L CNN
+F 1 "1k" H 9359 5705 50  0000 L CNN
+F 2 "" H 9300 5750 50  0001 C CNN
+F 3 "~" H 9300 5750 50  0001 C CNN
+	1    9300 5750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9300 5850 9600 5850
+Connection ~ 9600 5850
+Wire Wire Line
+	9250 5650 9300 5650
+Connection ~ 9300 5650
+Text Notes 10100 5800 0    50   ~ 0
+The transistor can be\nused on 3V or 5V
+$Comp
+L Connector_Generic:Conn_01x02 J?
+U 1 1 645EA584
+P 10800 4950
+F 0 "J?" H 10880 4942 50  0000 L CNN
+F 1 "AC230V" H 10880 4851 50  0000 L CNN
+F 2 "" H 10800 4950 50  0001 C CNN
+F 3 "~" H 10800 4950 50  0001 C CNN
+	1    10800 4950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10600 5050 10600 5450
+Wire Wire Line
+	10600 5450 10000 5450
+Wire Wire Line
+	10100 4850 10600 4850
+Wire Wire Line
+	10600 4850 10600 4950
+Text GLabel 6600 3550 2    50   Input ~ 0
+RD1
+$Comp
+L power:+5V #PWR?
+U 1 1 645EB328
+P 3600 1650
+F 0 "#PWR?" H 3600 1500 50  0001 C CNN
+F 1 "+5V" H 3550 1850 50  0000 C CNN
+F 2 "" H 3600 1650 50  0001 C CNN
+F 3 "" H 3600 1650 50  0001 C CNN
+	1    3600 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 645EB3B0
+P 3750 1650
+F 0 "#PWR?" H 3750 1500 50  0001 C CNN
+F 1 "+5V" H 3700 1850 50  0000 C CNN
+F 2 "" H 3750 1650 50  0001 C CNN
+F 3 "" H 3750 1650 50  0001 C CNN
+	1    3750 1650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 1650 3600 1900
+$Comp
+L Device:C_Small C?
+U 1 1 645EB64E
+P 3750 1750
+F 0 "C?" H 3842 1796 50  0000 L CNN
+F 1 "100nF" H 3842 1705 50  0000 L CNN
+F 2 "" H 3750 1750 50  0001 C CNN
+F 3 "~" H 3750 1750 50  0001 C CNN
+	1    3750 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 645EB7AA
+P 3750 1850
+F 0 "#PWR?" H 3750 1600 50  0001 C CNN
+F 1 "GND" H 3850 1750 50  0000 C CNN
+F 2 "" H 3750 1850 50  0001 C CNN
+F 3 "" H 3750 1850 50  0001 C CNN
+	1    3750 1850
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 645EC0DA
+P 3600 2500
+F 0 "#PWR?" H 3600 2250 50  0001 C CNN
+F 1 "GND" H 3700 2400 50  0000 C CNN
+F 2 "" H 3600 2500 50  0001 C CNN
+F 3 "" H 3600 2500 50  0001 C CNN
+	1    3600 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Sensor:DHT11 U?
+U 1 1 645ECAED
+P 3700 2200
+F 0 "U?" H 3470 2246 50  0000 R CNN
+F 1 "DHT11" H 3470 2155 50  0000 R CNN
+F 2 "" H 3850 2450 50  0001 C CNN
+F 3 "http://akizukidenshi.com/download/ds/aosong/DHT11.pdf" H 3850 2450 50  0001 C CNN
+F 4 "https://www.electronicwings.com/sensors-modules/dht11" H 3700 2200 50  0001 C CNN "Description"
+	1    3700 2200
+	1    0    0    -1  
+$EndComp
+Text Notes 1450 1850 0    50   ~ 0
+The communication process is divided in three steps,\nfirst is to send request to DHT11 sensor then sensor\nwill send response pulse and then it starts sending \ndata of total 40 bits to the microcontroller.
+Text Notes 1450 2600 0    50   ~ 0
+Example:\nRequest: 0x22\nPositive response: 0x22+40 = 0x62\nDATA: 40bits\n\nRequest: 0x22\nResponse: 0x62 40bits\nBits 0-20 are temperature\nBits 21-39 are humidity
+Text Notes 3250 1350 0    50   ~ 0
+consumption: max 2.5mA
+Text Notes 3050 1250 0    50   ~ 0
+Operating range: 20-80% RH, 0-50°C
+Text Notes 3050 1150 0    50   ~ 0
+Response time: 1s, Sampling rate: 1Hz
+Text Notes 550  1450 0    50   ~ 0
+Digital signal transmission protocol: \n1 start signal + 40bit data + 1 checksum
+Text Notes 1450 2800 0    50   ~ 0
+Start pulse: 18mS drop from 1 to 0\nthen set to 1 again
+Text Notes 1450 3000 0    50   ~ 0
+The positive response is low for 54us and\n then goes high for 80us.
+Text Notes 1450 3350 0    50   ~ 0
+The DATA is 5 bytes(40bits)\nThe first 2 bytes are humidity in int\nIt shows the decimal part(1st byte)\nand the fractional part(2nd byte)\n
+Text Notes 1450 3650 0    50   ~ 0
+The second 2 bytes are the temperature\nin int.\nBoth bytes show the decimal part.
+Text Notes 1450 3850 0    50   ~ 0
+The last byte is a checksum in order\nto ensure the informations validity.
+Text Notes 1450 4200 0    50   ~ 0
+Here checksum byte is direct addition of humidity and\n temperature value. And we can verify it, whether it is \nsame as checksum value or not. If it is not equal, then \nthere is some error in the received data.
+Text Notes 1450 4400 0    50   ~ 0
+Once data received, DHT11 pin goes in low power \nconsumption mode till next start pulse.
+Text GLabel 4400 3050 0    50   Input ~ 0
+RA6
+Text GLabel 4000 2200 2    50   Input ~ 0
+RA6
+$Comp
+L Device:R_Small R?
+U 1 1 645F14CB
+P 4150 1750
+F 0 "R?" H 4250 1800 50  0000 L CNN
+F 1 "4k7" H 4209 1705 50  0000 L CNN
+F 2 "" H 4150 1750 50  0001 C CNN
+F 3 "~" H 4150 1750 50  0001 C CNN
+	1    4150 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR?
+U 1 1 645F15D8
+P 4150 1650
+F 0 "#PWR?" H 4150 1500 50  0001 C CNN
+F 1 "+5V" H 4100 1850 50  0000 C CNN
+F 2 "" H 4150 1650 50  0001 C CNN
+F 3 "" H 4150 1650 50  0001 C CNN
+	1    4150 1650
+	1    0    0    -1  
+$EndComp
+Text GLabel 4150 1850 3    50   Input ~ 0
+RA6
+$EndSCHEMATC
